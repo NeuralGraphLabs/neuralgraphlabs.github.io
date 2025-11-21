@@ -1,21 +1,32 @@
-import { LucideIcon } from 'lucide-react';
-
-export interface ModelConfig {
-  id: string;
-  name: string;
-  type: 'NLP' | 'CV' | 'RL' | 'Generative';
-  capabilities: string[];
-  description: string;
-  performance: string;
-}
-
-export interface FeatureItem {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}
-
 export interface NavItem {
   label: string;
-  path: string;
+  href: string;
+  isSpecial?: boolean;
+}
+
+export interface CarouselSlide {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+export interface TimelineEvent {
+  year: string;
+  title: string;
+  description: string;
+}
+
+export enum TabOption {
+  DOCUMENTATION = 'Documentation',
+  EXPERIMENTS = 'Experiments',
+  MODELS = 'Models',
+  PREVIEWS = 'Previews',
+}
+
+export interface ContentData {
+  title: string;
+  body: string;
+  image?: string;
+  linkText?: string;
 }
