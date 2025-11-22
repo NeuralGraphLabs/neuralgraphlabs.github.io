@@ -1,12 +1,13 @@
 backend:
   name: github
-  repo: AutodiffLabs/autodifflabs.github.io # your GitHub repo
-  branch: main                 # branch to commit content
+  repo: AutodiffLabs/autodifflabs.github.io
+  branch: main
   auth_scope: repo
   client_id: Ov23li8aeOf71Xru85St
+  login: true
 
-media_folder: "assets/uploads"   # folder where uploaded images go
-public_folder: "/assets/uploads" # path for images in site
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
   - name: "blogs"
@@ -36,10 +37,3 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-  
-backend:
-  name: github
-  repo: AutodiffLabs/autodifflabs.github.io
-  branch: main
-  auth_scope: repo
-  login: true
