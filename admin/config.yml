@@ -14,7 +14,7 @@ public_folder: "/assets/uploads"
 collections:
   - name: "blogs"
     label: "Blog Posts"
-    folder: "content/blogs"
+    folder: "projects/blogs"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -24,7 +24,7 @@ collections:
 
   - name: "docs"
     label: "Docs Pages"
-    folder: "content/docs"
+    folder: "projects/docs"
     create: true
     slug: "{{slug}}"
     fields:
@@ -33,7 +33,7 @@ collections:
 
   - name: "hypergrad_docs"
     label: "Hypergrad Docs"
-    folder: "content/hypergrad_docs"
+    folder: "projects/hypergrad_docs"
     create: true
     slug: "{{slug}}"
     fields:

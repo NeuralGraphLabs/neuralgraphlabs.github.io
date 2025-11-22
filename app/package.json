@@ -10,10 +10,12 @@
     "postbuild": "node ../move-build.js"
   },
   "dependencies": {
+    "marked": "^17.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@types/marked": "^5.0.2",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",

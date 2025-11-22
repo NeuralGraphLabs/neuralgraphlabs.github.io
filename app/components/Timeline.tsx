@@ -12,7 +12,7 @@ const Timeline: React.FC = () => {
         <FadeIn>
           <div className="text-center mb-20">
             <h2 className="text-3xl font-light text-gray-900">Project Outcomes</h2>
-            <p className="text-gray-500 mt-2 font-light">Below are the outcomes of the reasearch and development conducted in this Project.</p>
+            <p className="text-gray-500 mt-2 font-light">Below are the expected outcomes of the reasearch and development conducted in this Project.</p>
           </div>
         </FadeIn>
 

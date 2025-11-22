@@ -10,6 +10,13 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Timeline', href: '#timeline', isSpecial: true },
 ];
 
+export const NAV_ITEMS_SECONDARY: NavItem[] = [
+  { label: 'Docs', href: '#docs' },
+  { label: 'Blogs', href: '#blogs' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'GitHub', href: 'https://github.com/AutodiffLabs' },
+];
+
 export const CAROUSEL_SLIDES: CarouselSlide[] = [
   {
     id: 1,
