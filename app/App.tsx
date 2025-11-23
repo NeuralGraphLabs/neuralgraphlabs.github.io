@@ -7,7 +7,7 @@ import Timeline from './components/Timeline';
 import DocsPage from './components/DocsPage';
 import { FadeIn } from './components/ui/Library';
 import { LOGO_PATH } from './constants';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (

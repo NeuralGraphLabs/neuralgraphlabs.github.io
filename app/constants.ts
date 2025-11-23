@@ -1,9 +1,9 @@
 import { NavItem, CarouselSlide, TimelineEvent, TabOption, ContentData } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Docs', href: '/docs' },
-  { label: 'Blogs', href: '/blogs' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Docs', href: '#docs' },
+  { label: 'Blogs', href: '#blogs' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Models', href: '#models' },
   { label: 'Research', href: '#research' },
   { label: 'GitHub', href: 'https://github.com/AutodiffLabs' },
@@ -11,9 +11,9 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const NAV_ITEMS_SECONDARY: NavItem[] = [
-  { label: 'Docs', href: '/docs' },
-  { label: 'Blogs', href: '/blogs' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Docs', href: '#docs' },
+  { label: 'Blogs', href: '#blogs' },
+  { label: 'Projects', href: '#projects' },
   { label: 'GitHub', href: 'https://github.com/AutodiffLabs' },
 ];
 
