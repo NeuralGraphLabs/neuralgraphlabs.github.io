@@ -1,8 +1,8 @@
 import { NavItem, CarouselSlide, TimelineEvent, TabOption, ContentData } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Docs', href: '#docs' },
-  { label: 'Blogs', href: '#blogs' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'Blogs', href: '/blogs' },
   { label: 'Projects', href: '#projects' },
   { label: 'Models', href: '#models' },
   { label: 'Research', href: '#research' },
