@@ -35,3 +35,22 @@ export interface GitHubFile {
   name: string
   content: string
 }
+
+export interface GitHubItem {
+  name: string;
+  path: string;
+  type: 'file' | 'dir';
+  download_url: string | null;
+  url: string; // API url to fetch contents if dir
+}
+
+export interface DocFile {
+  name: string;
+  content: string;
+  path: string;
+}
+
+export interface DocSection {
+  title: string;
+  items: DocFile[];
+}

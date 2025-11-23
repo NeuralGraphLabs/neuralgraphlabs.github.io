@@ -1,31 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { marked } from 'marked';
 import { USER_NAME, REPO, DOC_FOLDER } from '@/constants';
-import { FadeIn } from '../components/ui/Library';
-
-// ------------------------------------------------------------------
-// Types
-// ------------------------------------------------------------------
-
-interface GitHubItem {
-  name: string;
-  path: string;
-  type: 'file' | 'dir';
-  download_url: string | null;
-  url: string; // API url to fetch contents if dir
-}
-
-interface DocFile {
-  name: string;
-  content: string;
-  path: string;
-}
-
-interface DocSection {
-  title: string;
-  items: DocFile[];
-}
+import { GitHubItem, DocFile, DocSection } from '@/types';
+import { FadeIn } from './ui/Library';
 
 // ------------------------------------------------------------------
 // Component
@@ -35,11 +13,8 @@ const DocsPage: React.FC = () => {
   const { file } = useParams<{ file?: string }>();
   const navigate = useNavigate();
   
-  // We store sections for the Sidebar UI
   const [sections, setSections] = useState<DocSection[]>([]);
-  // We store a flat list to easily find the selected file's content
   const [allFiles, setAllFiles] = useState<DocFile[]>([]);
-  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -49,20 +24,15 @@ const DocsPage: React.FC = () => {
     async function fetchDocs() {
       try {
         setLoading(true);
-        
-        // 1. Fetch Root Directory
         const rootRes = await fetch(`https://api.github.com/repos/${USER_NAME}/${REPO}/contents/${DOC_FOLDER}`);
         if (!rootRes.ok) throw new Error('Repo not found');
         const rootData: GitHubItem[] = await rootRes.json();
 
-        // 2. Separate Folders and Files
         const rootFiles = rootData.filter(item => item.type === 'file' && item.name.endsWith('.md'));
         const folders = rootData.filter(item => item.type === 'dir');
 
-        // 3. Process Root Files (Group 'General')
         const processedSections: DocSection[] = [];
 
-        // Helper to fetch raw content
         const fetchContent = async (item: GitHubItem): Promise<DocFile> => {
           const res = await fetch(item.download_url!);
           const text = await res.text();
@@ -81,16 +51,15 @@ const DocsPage: React.FC = () => {
           });
         }
 
-        // 4. Process Subfolders (Blogs, Tutorials, etc.)
         const folderPromises = folders.map(async (folder) => {
-          const res = await fetch(folder.url); // Use the API url provided in the folder object
+          const res = await fetch(folder.url);
           const data: GitHubItem[] = await res.json();
           const mdFiles = data.filter(f => f.type === 'file' && f.name.endsWith('.md'));
           
           if (mdFiles.length > 0) {
             const filesWithContent = await Promise.all(mdFiles.map(fetchContent));
             return {
-              title: folder.name, // e.g., "blogs"
+              title: folder.name,
               items: filesWithContent
             };
           }
@@ -98,8 +67,6 @@ const DocsPage: React.FC = () => {
         });
 
         const folderSections = (await Promise.all(folderPromises)).filter(Boolean) as DocSection[];
-        
-        // Combine all sections
         const finalSections = [...processedSections, ...folderSections];
         const flatList = finalSections.flatMap(s => s.items);
 
@@ -107,14 +74,12 @@ const DocsPage: React.FC = () => {
           setSections(finalSections);
           setAllFiles(flatList);
 
-          // Auto-navigate if no file selected or invalid file
           const currentExists = file && flatList.find(f => f.name === file);
           if (!file || !currentExists) {
-             // Priority: Overview file -> First file in General -> First file anywhere
-             const defaultFile = flatList.find(f => f.name.toLowerCase().includes('overview')) || flatList[0];
-             if (defaultFile) {
-               navigate(`/docs/${defaultFile.name}`, { replace: true });
-             }
+            const defaultFile = flatList.find(f => f.name.toLowerCase().includes('overview')) || flatList[0];
+            if (defaultFile) {
+              navigate(`#/docs/${defaultFile.name}`, { replace: true });
+            }
           }
         }
       } catch (err) {
@@ -130,10 +95,6 @@ const DocsPage: React.FC = () => {
   }, [file, navigate]);
 
   const selectedDoc = allFiles.find(f => f.name === file);
-
-  // ------------------------------------------------------------------
-  // Styles
-  // ------------------------------------------------------------------
 
   const markdownStyles = `
     w-full max-w-3xl
@@ -190,8 +151,8 @@ const DocsPage: React.FC = () => {
                         const isActive = f.name === file;
                         return (
                           <li key={f.name}>
-                            <Link
-                              to={`/docs/${f.name}`}
+                            <a
+                              href={`#/docs/${f.name}`}
                               className={`block pl-4 py-2 text-sm transition-all duration-300 -ml-[1px] border-l-2 ${
                                 isActive 
                                   ? 'border-sunflower-500 text-gray-900 font-medium' 
@@ -199,7 +160,7 @@ const DocsPage: React.FC = () => {
                               }`}
                             >
                               {f.name.replace(/\.(md|markdown)$/, '').split('-').join(' ')}
-                            </Link>
+                            </a>
                           </li>
                         );
                       })}
@@ -214,10 +175,8 @@ const DocsPage: React.FC = () => {
         {/* Main Content Area */}
         <main className="flex-1 min-w-0">
           {selectedDoc ? (
-            // Key forces re-render animation when switching files
             <FadeIn key={selectedDoc.name} className="w-full">
               <article className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100">
-                 {/* Breadcrumb (Optional but helpful for subfolders) */}
                  <div className="mb-8 flex items-center gap-2 text-xs font-mono text-gray-400 uppercase tracking-wider">
                     <span>Docs</span>
                     <span>/</span>
