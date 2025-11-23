@@ -14,9 +14,9 @@ public_folder: "/assets/uploads"
 collections:
   - name: "blogs"
     label: "Blog Posts"
-    folder: "projects/blogs"
+    folder: "/blogs"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Cover Image", name: "image", widget: "image" }
@@ -24,18 +24,28 @@ collections:
 
   - name: "docs"
     label: "Docs Pages"
-    folder: "projects/docs"
+    folder: "/docs"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "hypergrad_docs"
+  - name: "hypergrad docs"
     label: "Hypergrad Docs"
-    folder: "projects/hypergrad_docs"
+    folder: "projects/hypergrad/docs"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "hypergrad blogs"
+    label: "Hypergrad Blogs"
+    folder: "projects/hypergrad/blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
