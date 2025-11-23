@@ -39,14 +39,13 @@ const App: React.FC = () => {
               <div className="flex gap-8 text-sm text-gray-400">
                 <a href="#" className="hover:text-sunflower-500 transition-colors">GitHub</a>
                 <a href="#" className="hover:text-sunflower-500 transition-colors">Twitter</a>
-                <a href="#" className="hover:text-sunflower-500 transition-colors">Discord</a>
                 <a href="#" className="hover:text-sunflower-500 transition-colors">Privacy</a>
               </div>
             </FadeIn>
 
             <FadeIn delay={200}>
               <p className="text-xs text-gray-300">
-                © {new Date().getFullYear()} AutodiffLabs. All rights reserved.
+                © {new Date().getFullYear()} AutodiffLabs.
               </p>
             </FadeIn>
           </div>

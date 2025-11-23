@@ -107,7 +107,7 @@
 
         <!-- Content Area -->
         <main class="flex-1 min-w-0">
-            <article id="content-area" class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 min-h-[60vh] opacity-0 transition-all duration-500 transform translate-y-4 prose prose-slate prose-lg max-w-none hover:prose-a:text-sunflower-600 prose-a:text-sunflower-500 prose-a:no-underline prose-img:rounded-xl prose-img:border prose-img:border-gray-100 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800">
+            <article id="content-area" class="bg-white rounded-xl p-2 md:p-8 shadow-sm min-h-[60vh] opacity-0 transition-all duration-500 transform translate-y-4 prose prose-slate prose-lg max-w-none hover:prose-a:text-sunflower-600 prose-a:text-sunflower-500 prose-a:no-underline prose-img:rounded-xl prose-img:border prose-img:border-gray-100 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800">
                 <!-- Content injected by JS -->
                 <div class="flex justify-center items-center h-40">
                     <div class="w-8 h-8 border-2 border-sunflower-500 border-t-transparent rounded-full animate-spin"></div>
@@ -125,22 +125,27 @@
         <!-- Logo + dot -->
         <div class="flex items-center gap-2">
           <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span class="text-lg tracking-tight font-medium">
-            Autodiff<span class="text-gray-400">Labs</span>
-          </span>
+          <img
+            src="https://raw.githubusercontent.com/AutodiffLabs/autodifflabs.github.io/main/adl.png"
+            width="70"
+            height="70"
+            alt="ADL Logo"
+            loading="lazy"
+            decoding="async"
+            class="w-[70px] h-[70px] object-cover opacity-90"
+          />
         </div>
 
         <!-- Links -->
         <nav class="flex gap-8 text-sm text-gray-400">
           <a href="https://github.com" target="_blank" rel="noopener" class="hover:text-sunflower-500 transition-colors">GitHub</a>
           <a href="#" class="hover:text-sunflower-500 transition-colors">Twitter</a>
-          <a href="#" class="hover:text-sunflower-500 transition-colors">Discord</a>
           <a href="#" class="hover:text-sunflower-500 transition-colors">Privacy</a>
         </nav>
 
         <!-- Copyright -->
         <p class="text-xs text-gray-400">
-          © <span id="year"></span> AutodiffLabs. All rights reserved.
+          © <span id="year"></span> AutodiffLabs.
         </p>
 
       </div>
