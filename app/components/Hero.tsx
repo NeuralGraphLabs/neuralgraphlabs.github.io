@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
 
       <FadeIn delay={400}>
         <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-light mb-10 leading-relaxed">
-          A functional, performance-focused autodiff and compute framework built to make ML models faster and more memory-efficient.
+          A functional, performance-focused compute framework built to make ML models faster and more memory-efficient.
         </p>
       </FadeIn>
 

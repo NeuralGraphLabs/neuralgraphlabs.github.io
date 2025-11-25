@@ -45,7 +45,7 @@ const App: React.FC = () => {
 
             <FadeIn delay={200}>
               <p className="text-xs text-gray-300">
-                © {new Date().getFullYear()} AutodiffLabs.
+                © {new Date().getFullYear()} NeuralGraphLabs.
               </p>
             </FadeIn>
           </div>

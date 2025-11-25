@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <a href="#" className="text-xl tracking-tighter font-normal flex items-center gap-2 group">
           <div className="w-3 h-3 bg-sunflower-500 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-          <span className="text-gray-900">Autodiff<span className="text-gray-400">Labs</span></span>
+          <span className="text-gray-900">NeuralGraph<span className="text-gray-400">Labs</span></span>
         </a>
 
         {/* Desktop Menu */}
