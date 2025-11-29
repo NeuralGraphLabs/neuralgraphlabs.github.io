@@ -42,12 +42,12 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
 export const TIMELINE_EVENTS: TimelineEvent[] = [
   {
     topic: "Framework",
-    title: "HyperGrad",
+    title: "Framework - Zero",
     description: "A deep learning framework for tensor computation and automatic differentiation."
   },
   {
     topic: "Deep learning model", // "Auto Trained Transformer",
-    title: "Model - 1",
+    title: "Model - A",
     description: "A trained deep learning transformer model built on the HyperGrad Framework"
   }
 ];
